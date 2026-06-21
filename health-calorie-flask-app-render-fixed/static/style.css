@@ -1,0 +1,216 @@
+:root {
+  color-scheme: light;
+  --ink: #172121;
+  --muted: #667085;
+  --line: #d8dee4;
+  --panel: #ffffff;
+  --teal: #0f766e;
+  --green: #16a34a;
+  --yellow: #f59e0b;
+  --red: #dc2626;
+  --bg: #eef6f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: linear-gradient(180deg, #0f766e 0, #0f766e 220px, var(--bg) 220px);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.app-shell {
+  width: min(1120px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 24px 0 36px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 120px;
+  color: #fff;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #ccfbf1;
+  font-weight: 700;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.metric-card,
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.metric-card {
+  padding: 16px;
+}
+
+.metric-card span,
+.metric-card small {
+  display: block;
+  color: var(--muted);
+}
+
+.metric-card strong {
+  display: block;
+  margin: 6px 0;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.panel {
+  padding: 20px;
+  margin-bottom: 14px;
+}
+
+.panel h2 {
+  margin: 0 0 12px;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.panel h3 {
+  margin: 24px 0 12px;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.panel-heading p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.remaining {
+  color: var(--green);
+  font-size: 2rem;
+  white-space: nowrap;
+}
+
+.remaining.over {
+  color: var(--red);
+}
+
+.calorie-progress {
+  height: 18px;
+  border-radius: 999px;
+  background: #dbe7e4;
+}
+
+.calorie-progress .progress-bar {
+  background: linear-gradient(90deg, var(--green), var(--yellow), var(--red));
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+.stacked-form {
+  display: grid;
+  gap: 12px;
+}
+
+label {
+  color: #344054;
+  font-weight: 700;
+}
+
+label .form-control,
+label .form-select {
+  margin-top: 6px;
+}
+
+.saved-profile,
+.empty {
+  color: var(--muted);
+}
+
+.record-list {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.record-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+@media (max-width: 780px) {
+  .app-shell {
+    width: min(100% - 18px, 520px);
+    padding-top: 16px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .dashboard-grid,
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
